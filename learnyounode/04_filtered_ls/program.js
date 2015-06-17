@@ -5,8 +5,9 @@ var fs = require('fs');
 // fichero.
 var path = require('path');
 // Si el usuario ha especificado una extensión, la procesamos.
-if (process.argv.length >= 3) {
-    var extension = '.' + process.argv[3];
+var extension = null;
+if (process.argv.length > 3) {
+    extension = '.' + process.argv[3];
 }
 // Leemos el fichero. El path al mismo se lo pasamos al programa como parametro
 // del programa.
@@ -19,7 +20,7 @@ fs.readdir(process.argv[2], function (err, list) {
         // Extraemos la extensión del fichero actual.
         var currentExtension = path.extname(currentFile);
         // verificamos que coinciden las extensiones.
-        if (currentExtension === extension) {
+        if (currentExtension === extension || extension === null) {
             // Mostramos por pantalla el fichero actual que estamos procesando.
             console.log(currentFile);
         }
