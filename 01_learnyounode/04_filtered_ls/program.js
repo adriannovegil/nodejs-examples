@@ -1,6 +1,6 @@
 // Cargamos el módulo que contiene las funciones necesarias para la entrada/salida.
 var fs = require('fs');
-// Cargamos el módulo ya que contiene funciones necesarias para la gestión de los
+// Cargamos el módulo que contiene funciones necesarias para la gestión de los
 // paths, como por ejemplo, extraer la extensión a partir del path completo de un
 // fichero.
 var path = require('path');

@@ -1,4 +1,4 @@
-// Importamos el módulo que hemos creado.
+// Importamos el módulo http.
 var http = require('http');
 // Lanzamos la solicitud GET
 http.get(process.argv[2], function callback(response) {
