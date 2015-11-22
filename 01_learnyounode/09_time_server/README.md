@@ -17,7 +17,7 @@
 
  ─────────────────────────────────────────────────────────────────────────────  
 
- ## HINTS  
+## HINTS  
 
   For this exercise we'll be creating a raw TCP server. There's no HTTP  
   involved here so we need to use the net module from Node core which has  

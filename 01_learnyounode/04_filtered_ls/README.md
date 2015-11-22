@@ -1,26 +1,36 @@
-# FILTERED LS
- Exercise 5 of 13
+# LEARN YOU THE NODE.JS FOR MUCH WIN!  
 
-Create a program that prints a list of files in a given directory, filtered by the extension of the files. You will be provided a directory name as the first argument to your program (e.g. '/path/to/dir/') and a file extension to filter by as the second argument.
+## FILTERED LS (Exercise 5 of 13)  
 
-For example, if you get 'txt' as the second argument then you will need to filter the list to only files that end with .txt. Note that the second argument will not come prefixed with a '.'.
+  Create a program that prints a list of files in a given directory,  
+  filtered by the extension of the files. You will be provided a directory  
+  name as the first argument to your program (e.g. '/path/to/dir/') and a  
+  file extension to filter by as the second argument.  
 
-The list of files should be printed to the console, one file per line. You must use asynchronous I/O.
+  For example, if you get 'txt' as the second argument then you will need to  
+  filter the list to only files that end with .txt. Note that the second  
+  argument will not come prefixed with a '.'.  
 
--------------------------------------------------------------------------------
+  The list of files should be printed to the console, one file per line. You  
+  must use asynchronous I/O.  
 
-## HINTS
+ ─────────────────────────────────────────────────────────────────────────────  
 
-The fs.readdir() method takes a pathname as its first argument and a callback as its second. The callback signature is:
+## HINTS  
 
-    function callback (err, list) { /* ... */ }
+  The fs.readdir() method takes a pathname as its first argument and a  
+  callback as its second. The callback signature is:  
 
-where list is an array of filename strings.
+     function callback (err, list) { /* ... */ }  
 
-Documentation on the fs module can be found by pointing your browser here:
-  file:///usr/local/lib/node_modules/learnyounode/node_apidoc/fs.html
+  where list is an array of filename strings.  
 
-You may also find node's path module helpful, particularly the extname method.
+  Documentation on the fs module can be found by pointing your browser here:  
+  file:///usr/local/lib/node_modules/learnyounode/node_apidoc/fs.html  
 
-Documentation on the path module can be found by pointing your browser here:
+  You may also find node's path module helpful, particularly the extname  
+  method.  
+
+  Documentation on the path module can be found by pointing your browser  
+  here:  
   file:///usr/local/lib/node_modules/learnyounode/node_apidoc/path.html

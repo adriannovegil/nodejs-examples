@@ -1,47 +1,68 @@
-# HTTP COLLECT
- Exercise 8 of 13
+# LEARN YOU THE NODE.JS FOR MUCH WIN!  
 
-Write a program that performs an HTTP GET request to a URL provided to you as the first command-line argument. Collect all data from the server (not just the first "data" event) and then write two lines to the console (stdout).
+## HTTP COLLECT (Exercise 8 of 13)  
 
-The first line you write should just be an integer representing the number of characters received from the server. The second line should contain the complete String of characters sent by the server.
+  Write a program that performs an HTTP GET request to a URL provided to you  
+  as the first command-line argument. Collect all data from the server (not  
+  just the first "data" event) and then write two lines to the console  
+  (stdout).  
 
--------------------------------------------------------------------------------
+  The first line you write should just be an integer representing the number  
+  of characters received from the server. The second line should contain the  
+  complete String of characters sent by the server.  
 
-## HINTS
+ ─────────────────────────────────────────────────────────────────────────────  
 
-There are two approaches you can take to this problem: 
+## HINTS  
 
-1) Collect data across multiple "data" events and append the results together prior to printing the output. Use the "end" event to determine when the stream is finished and you can write the output.
+  There are two approaches you can take to this problem:  
 
-2) Use a third-party package to abstract the difficulties involved in collecting an entire stream of data. Two different packages provide a useful API for solving this problem (there are likely more!): bl (Buffer List) and concat-stream; take your pick!
+  1) Collect data across multiple "data" events and append the results  
+  together prior to printing the output. Use the "end" event to determine  
+  when the stream is finished and you can write the output.  
 
-  <http://npm.im/bl>
-  <http://npm.im/concat-stream>
+  2) Use a third-party package to abstract the difficulties involved in  
+  collecting an entire stream of data. Two different packages provide a  
+  useful API for solving this problem (there are likely more!): bl (Buffer  
+  List) and concat-stream; take your pick!  
 
-To install a Node package, use the Node Package Manager npm. Simply type:
+  <http://npm.im/bl> <http://npm.im/concat-stream>  
 
-    $ npm install bl
+  To install a Node package, use the Node Package Manager npm. Simply type:  
 
-And it will download and install the latest version of the package into a subdirectory named node_modules. Any package in this subdirectory under your main program file can be loaded with the require syntax without being prefixed by './':
+     $ npm install bl  
 
-    var bl = require('bl')
+  And it will download and install the latest version of the package into a  
+  subdirectory named node_modules. Any package in this subdirectory under  
+  your main program file can be loaded with the require syntax without being  
+  prefixed by './':  
 
-Node will first look in the core modules and then in the node_modules directory where the package is located.
+     var bl = require('bl')  
 
-If you don't have an Internet connection, simply make a node_modules directory and copy the entire directory for the package you want to use from inside the learnyounode installation directory:
+  Node will first look in the core modules and then in the node_modules  
+  directory where the package is located.  
 
-  file:///usr/local/lib/node_modules/learnyounode/node_modules/bl
-  file:///usr/local/lib/node_modules/learnyounode/node_modules/concat-stream
+  If you don't have an Internet connection, simply make a node_modules  
+  directory and copy the entire directory for the package you want to use  
+  from inside the learnyounode installation directory:  
 
-Both bl and concat-stream can have a stream piped in to them and they will collect the data for you. Once the stream has ended, a callback will be fired with the data:
+  file:///usr/local/lib/node_modules/learnyounode/node_modules/bl  
+  file:///usr/local/lib/node_modules/learnyounode/node_modules/concat-stream  
 
-    response.pipe(bl(function (err, data) { /* ... */ }))
-    // or
-    response.pipe(concatStream(function (data) { /* ... */ }))
+  Both bl and concat-stream can have a stream piped in to them and they will  
+  collect the data for you. Once the stream has ended, a callback will be  
+  fired with the data:  
 
-Note that you will probably need to data.toString() to convert from a Buffer.
+     response.pipe(bl(function (err, data) { /* ... */ }))  
+     // or  
+     response.pipe(concatStream(function (data) { /* ... */ }))  
 
-Documentation for both of these modules has been installed along with learnyounode on your system and you can read them by pointing your browser here:
+  Note that you will probably need to data.toString() to convert from a  
+  Buffer.  
 
-  file:///usr/local/lib/node_modules/learnyounode/docs/bl.html
+  Documentation for both of these modules has been installed along with  
+  learnyounode on your system and you can read them by pointing your browser  
+  here:  
+
+  file:///usr/local/lib/node_modules/learnyounode/docs/bl.html  
   file:///usr/local/lib/node_modules/learnyounode/docs/concat-stream.html

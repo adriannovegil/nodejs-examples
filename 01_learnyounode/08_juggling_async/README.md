@@ -14,7 +14,7 @@
 
  ─────────────────────────────────────────────────────────────────────────────  
 
- ## HINTS  
+## HINTS  
 
   Don't expect these three servers to play nicely! They are not going to  
   give you complete responses in the order you hope, so you can't naively  

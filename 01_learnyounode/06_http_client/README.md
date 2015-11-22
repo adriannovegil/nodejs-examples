@@ -1,27 +1,39 @@
-# HTTP CLIENT
- Exercise 7 of 13
+# LEARN YOU THE NODE.JS FOR MUCH WIN!  
 
-Write a program that performs an HTTP GET request to a URL provided to you as the first command-line argument. Write the String contents of each "data" event from the response to a new line on the console (stdout).
+## HTTP CLIENT (Exercise 7 of 13)  
 
--------------------------------------------------------------------------------
+  Write a program that performs an HTTP GET request to a URL provided to you  
+  as the first command-line argument. Write the String contents of each  
+  "data" event from the response to a new line on the console (stdout).  
 
-## HINTS
+ ─────────────────────────────────────────────────────────────────────────────  
 
-For this exercise you will need to use the http core module.
+## HINTS  
 
-Documentation on the http module can be found by pointing your browser here:
-  file:///usr/local/lib/node_modules/learnyounode/node_apidoc/http.html
+  For this exercise you will need to use the http core module.  
 
-The http.get() method is a shortcut for simple GET requests, use it to simplify your solution. The first argument to http.get() can be the URL you want to GET; provide a callback as the second argument.
+  Documentation on the http module can be found by pointing your browser  
+  here:  
+  file:///usr/local/lib/node_modules/learnyounode/node_apidoc/http.html  
 
-Unlike other callback functions, this one has the signature:
+  The http.get() method is a shortcut for simple GET requests, use it to  
+  simplify your solution. The first argument to http.get() can be the URL  
+  you want to GET; provide a callback as the second argument.  
 
-    function callback (response) { /* ... */ }
+  Unlike other callback functions, this one has the signature:  
 
-Where the response object is a Node Stream object. You can treat Node Streams as objects that emit events. The three events that are of most interest are: "data", "error" and "end". You listen to an event like so:
+     function callback (response) { /* ... */ }  
 
-    response.on("data", function (data) { /* ... */ })
+  Where the response object is a Node Stream object. You can treat Node  
+  Streams as objects that emit events. The three events that are of most  
+  interest are: "data", "error" and "end". You listen to an event like so:  
 
-The "data" event is emitted when a chunk of data is available and can be processed. The size of the chunk depends upon the underlying data source.
+     response.on("data", function (data) { /* ... */ })  
 
-The response object / Stream that you get from http.get() also has a setEncoding() method. If you call this method with "utf8", the "data" events will emit Strings rather than the standard Node Buffer objects which you have to explicitly convert to Strings.
+  The "data" event is emitted when a chunk of data is available and can be  
+  processed. The size of the chunk depends upon the underlying data source.  
+
+  The response object / Stream that you get from http.get() also has a  
+  setEncoding() method. If you call this method with "utf8", the "data"  
+  events will emit Strings rather than the standard Node Buffer objects  
+  which you have to explicitly convert to Strings.
