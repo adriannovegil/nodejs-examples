@@ -21,3 +21,7 @@ function onRequest(request, response) {
 // nuestro servidor HTTP va a escuchar.
 // En nuestro caso el servidor se inicia en el puerto 8888
 http.createServer(onRequest).listen(8888);
+
+// Con esto podemos ver que después de registrar el servidor, la ejecución
+// continua. 
+console.log("Servidor Iniciado.");
