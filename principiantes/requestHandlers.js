@@ -1,11 +1,13 @@
 // Función que se encarga de la inicialización
 function iniciar() {
   console.log("Manipulador de petición 'iniciar' ha sido llamado.");
+  return "Hola Iniciar";
 }
 
 // Función que se encarga de subir un fichero
 function subir() {
   console.log("Manipulador de petición 'subir' ha sido llamado.");
+  return "Hola Subir";
 }
 
 // Exportamos las funciones.

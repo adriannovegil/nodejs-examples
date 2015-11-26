@@ -11,13 +11,14 @@ function iniciar (route, handle) {
   function onRequest(request, response) {
     var pathname = url.parse(request.url).pathname;
     console.log("Petición para " + pathname + " recibida.");
-    // Añadimos la llamada al router que hemos creado.
-    route(handle, pathname);
     // Escribimos en la cabecera del response el código 200 indicando que la
     // petición se ha procesado con écito.
     response.writeHead(200, {"Content-Type": "text/html"});
+    // Añadimos la llamada al router que hemos creado.
+    // Almacenamos el resultado de procesar la petición en la variable content
+    var content = route(handle, pathname);
     // Escribimos el cuerpo de la respuesta.
-    response.write("Hola Mundo");
+    response.write(content);
     // Finalizamos y retornamos la respuesta.
     response.end();
     // Escuchamos en el puerto 8888
