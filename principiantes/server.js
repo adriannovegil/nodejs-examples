@@ -14,14 +14,8 @@ function iniciar (route, handle) {
     // Escribimos en la cabecera del response el código 200 indicando que la
     // petición se ha procesado con écito.
     response.writeHead(200, {"Content-Type": "text/html"});
-    // Añadimos la llamada al router que hemos creado.
-    // Almacenamos el resultado de procesar la petición en la variable content
-    var content = route(handle, pathname);
-    // Escribimos el cuerpo de la respuesta.
-    response.write(content);
-    // Finalizamos y retornamos la respuesta.
-    response.end();
-    // Escuchamos en el puerto 8888
+    // Delegamos la gestión de la petición en el enrutador.
+    route(handle, pathname, response);    
   }
   // Llamamos a una de las funciones que el módulo http ofrece: createServer. Esta
   // función retorna un objeto, y este objeto tiene un método llamado listen
