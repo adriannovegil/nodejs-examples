@@ -9,13 +9,23 @@ function iniciar (route, handle) {
   // Creamos la funcion que se encarga de procesar las peticiones que reciba el
   // servidor.
   function onRequest(request, response) {
+    var dataPosteada = "";
+    // Recuperamos el path
     var pathname = url.parse(request.url).pathname;
-    console.log("Petición para " + pathname + " recibida.");
-    // Escribimos en la cabecera del response el código 200 indicando que la
-    // petición se ha procesado con écito.
-    response.writeHead(200, {"Content-Type": "text/html"});
-    // Delegamos la gestión de la petición en el enrutador.
-    route(handle, pathname, response);    
+    console.log("Peticion para " + pathname + " recibida.");
+    // Deifinimos el encoding
+    request.setEncoding("utf8");
+    // Añadimos un manejador para procesar los datos mientras están siendo
+    // recividos.
+    request.addListener("data", function(trozoPosteado) {
+      dataPosteada += trozoPosteado;
+      console.log("Recibido trozo POST '" + trozoPosteado + "'.");
+    });
+    // Añadimos un manejador para cuando finalice la recepción de los datos.
+    request.addListener("end", function() {
+      // Procesamos la petición.
+      route(handle, pathname, response, dataPosteada);
+    });
   }
   // Llamamos a una de las funciones que el módulo http ofrece: createServer. Esta
   // función retorna un objeto, y este objeto tiene un método llamado listen

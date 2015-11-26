@@ -1,9 +1,9 @@
 // Funcion que se encarga del ruteo de las peticiones.
-function route(handle, pathname, response) {
+function route(handle, pathname, response, postData) {
   console.log("A punto de rutear una peticion para " + pathname);
   // Verificamos que existe el path que queremos procesar.
   if (typeof handle[pathname] === 'function') {
-    return handle[pathname](response);
+    handle[pathname](response, postData);
   } else {
     // En caso de error mostramos la página de error.
     console.log("No hay manipulador de peticion para " + pathname);

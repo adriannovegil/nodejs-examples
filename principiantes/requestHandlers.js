@@ -1,23 +1,35 @@
 // Necesario para ejecutar comandos en el sistema.
 var exec = require("child_process").exec;
+var querystring = require("querystring");
 
 // Función que se encarga de la inicialización
-function iniciar(response) {
+function iniciar(response, postData) {
   console.log("Manipulador de petición 'iniciar' fue llamado.");
-  // Como respuesta enviamos la lista de ficheros del sistema.
-  exec("ls -lah", function (error, stdout, stderr) {
+  // Componemos la vista que retornamos al usuario.
+  var body = '<html>'+
+    '<head>'+
+    '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />'+
+    '</head>'+
+    '<body>'+
+    '<form action="/subir" method="post">'+
+    '<textarea name="text" rows="20" cols="60"></textarea>'+
+    '<input type="submit" value="Enviar texto" />'+
+    '</form>'+
+    '</body>'+
+    '</html>';
+    // Escribimos el contenido en la response.
     response.writeHead(200, {"Content-Type": "text/html"});
-    response.write(stdout);
+    response.write(body);
     response.end();
-  });
 }
 
 // Función que se encarga de subir un fichero
-function subir(response) {
+function subir(response, dataPosteada) {
   // Escribimos la respuesta.
-  console.log("Manipulador de petición 'subir' fue llamado.");
+  console.log("Manipulador de peticion 'subir' fue llamado.");
   response.writeHead(200, {"Content-Type": "text/html"});
-  response.write("Hola Subir");
+  response.write("Tu enviaste el texto: : " +
+  querystring.parse(dataPosteada)["text"]);
   response.end();
 }
 
